@@ -431,6 +431,16 @@ section h2 {
   border-top: 1px solid var(--card-border);
 }
 
+.analytics-note {
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.analytics-note a {
+  color: var(--mustard-dark);
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .about-grid { grid-template-columns: 1fr; }
   .row { grid-template-columns: 1fr 1fr; }

@@ -43,6 +43,27 @@ const els = {
 
 const state = { scenario: 'grace', granularity: 'year' };
 let lastResult = null;
+let calculatorUsedTimer = null;
+
+function bucketLoanAmountWan(wan) {
+  if (wan < 500) return '500萬以下';
+  if (wan < 1000) return '500–1000萬';
+  if (wan < 1500) return '1000–1500萬';
+  if (wan < 2000) return '1500–2000萬';
+  return '2000萬以上';
+}
+
+// 完成一次試算才算數：等使用者停止調整輸入一段時間後才送出，避免每敲一個字就送一次事件。
+function scheduleCalculatorUsedEvent(input, excess) {
+  clearTimeout(calculatorUsedTimer);
+  calculatorUsedTimer = setTimeout(() => {
+    trackEvent('calculator_used', {
+      identity_type: input.identity,
+      loan_amount_range: bucketLoanAmountWan(input.totalWan),
+      has_excess: excess > 0
+    });
+  }, 1500);
+}
 
 function formatNT(n) {
   return 'NT$ ' + Math.round(n || 0).toLocaleString('zh-Hant-TW');
@@ -183,6 +204,7 @@ function recalc() {
     return;
   }
   els.error.hidden = true;
+  scheduleCalculatorUsedEvent(input, excess);
 
   const termMonths = input.termYears * 12;
   const graceMonths = input.graceYears * 12;
@@ -232,6 +254,7 @@ els.scheduleExpand.addEventListener('click', () => {
   const expanded = !els.scheduleWrap.hidden;
   els.scheduleWrap.hidden = expanded;
   els.scheduleExpand.textContent = expanded ? '展開明細表' : '收合明細表';
+  if (!expanded) trackEvent('detail_expand', {});
 });
 
 recalc();
