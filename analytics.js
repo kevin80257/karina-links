@@ -2,7 +2,7 @@
 // 之後要換評估 ID、加新事件，或換成別的分析工具，都只需要改這個檔案。
 
 // TODO：換成你自己的 GA4 評估 ID（在 GA4 後台「管理 > 資料串流」可以找到）
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-NJGK8S4NMB';
 
 (function loadGA4() {
   if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf('XXXXXXXXXX') !== -1) {
