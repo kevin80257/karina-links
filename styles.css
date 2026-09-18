@@ -12,13 +12,25 @@
   --card-border: #f0d5b8;
   --radius: 16px;
   --shadow: 0 4px 14px rgba(74, 55, 40, 0.08);
+
+  /* 奶茶漸層背景 */
+  --milktea-top: #fdf3e6;
+  --milktea-mid: #ecd7b8;
+  --milktea-bottom: #d8b48c;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--cream);
+  min-height: 100vh;
+  background-color: var(--milktea-bottom);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='%23f2c9d1' fill-opacity='0.4' transform='translate(160,150)'%3E%3Ccircle cx='0' cy='-24' r='16'/%3E%3Ccircle cx='21' cy='-7' r='16'/%3E%3Ccircle cx='13' cy='19' r='16'/%3E%3Ccircle cx='-13' cy='19' r='16'/%3E%3Ccircle cx='-21' cy='-7' r='16'/%3E%3C/g%3E%3Ccircle cx='160' cy='150' r='10' fill='%23eeab3c' fill-opacity='0.45'/%3E%3Cg fill='%23f2c9d1' fill-opacity='0.25' transform='translate(40,260) scale(0.6)'%3E%3Ccircle cx='0' cy='-24' r='16'/%3E%3Ccircle cx='21' cy='-7' r='16'/%3E%3Ccircle cx='13' cy='19' r='16'/%3E%3Ccircle cx='-13' cy='19' r='16'/%3E%3Ccircle cx='-21' cy='-7' r='16'/%3E%3C/g%3E%3Ccircle cx='40' cy='260' r='6' fill='%23eeab3c' fill-opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, var(--milktea-top) 0%, var(--milktea-mid) 55%, var(--milktea-bottom) 100%);
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  background-size: 320px 320px, 100% 100vh;
   color: var(--brown);
   font-family: "PingFang TC", "Microsoft JhengHei", "Heiti TC", "Noto Sans TC", sans-serif;
   line-height: 1.6;
@@ -87,7 +99,6 @@ img { max-width: 100%; display: block; }
 .hero {
   text-align: center;
   padding: 56px 20px 40px;
-  background: linear-gradient(180deg, var(--peach-light), var(--cream));
 }
 
 .hero h1 {
