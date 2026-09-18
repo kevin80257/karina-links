@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新青安房貸試算｜Karina 存錢筆記</title>
+<meta name="description" content="新青安房貸試算工具 — 自動拆分新青安額度與超額部分，比較有無寬限期的每月還款金額">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="avatar">K</span>
+      <span class="brand-name">Karina</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#tools">免費工具</a>
+      <a href="loan-calculator.html">房貸試算</a>
+      <a href="index.html#shop">嚴選好物</a>
+      <a href="index.html#connect">聯絡我</a>
+    </nav>
+  </div>
+</header>
+
+<main class="calc-page">
+
+  <a href="index.html#tools" class="back-link">← 回免費工具</a>
+  <h1>新青安房貸試算</h1>
+  <p class="section-sub">輸入貸款總金額，自動拆分「新青安」與「超額」部分，比較有無寬限期的月付金差異</p>
+
+  <div class="calc-layout">
+
+    <section class="calc-card calc-form-card">
+      <h2>輸入條件</h2>
+
+      <label class="field">
+        <span>貸款總金額（萬元）</span>
+        <input type="number" id="total-wan" min="1" step="1" value="1200">
+      </label>
+
+      <label class="field">
+        <span>新青安身分</span>
+        <select id="identity">
+          <option value="general">一般（額度上限 1,000 萬）</option>
+          <option value="newlywed">新婚家庭（額度上限 1,200 萬）</option>
+          <option value="childcare">育兒家庭（額度上限 1,500 萬）</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>新青安利率（%）</span>
+        <input type="number" id="qingan-rate" min="0" max="20" step="0.001" value="1.775">
+      </label>
+
+      <label class="field" id="excess-rate-field">
+        <span>超額部分利率（%）<span class="hint">貸款金額超過新青安上限時才需要</span></span>
+        <input type="number" id="excess-rate" min="0" max="20" step="0.001" value="2.5">
+      </label>
+
+      <label class="field">
+        <span>貸款年限（年）</span>
+        <input type="number" id="term-years" min="1" max="40" step="1" value="30">
+      </label>
+
+      <label class="field">
+        <span>寬限期（年）<span class="hint">只用在「有寬限期」的版本，0～5 年</span></span>
+        <input type="number" id="grace-years" min="0" max="5" step="1" value="3">
+      </label>
+
+      <label class="field-checkbox">
+        <input type="checkbox" id="advanced-toggle">
+        <span>進階選項：超額部分使用不同的年限／寬限期</span>
+      </label>
+
+      <div id="advanced-fields" class="advanced-fields" hidden>
+        <label class="field">
+          <span>超額部分年限（年）</span>
+          <input type="number" id="excess-term-years" min="1" max="40" step="1" value="30">
+        </label>
+        <label class="field">
+          <span>超額部分寬限期（年）</span>
+          <input type="number" id="excess-grace-years" min="0" max="5" step="1" value="3">
+        </label>
+      </div>
+
+      <p id="calc-error" class="calc-error" hidden></p>
+    </section>
+
+    <section class="calc-card calc-summary-card">
+      <h2>拆分結果</h2>
+      <div class="summary-row">
+        <span>新青安貸款金額</span>
+        <strong id="summary-qingan">NT$ 0</strong>
+      </div>
+      <div class="summary-row" id="summary-excess-row" hidden>
+        <span>超額貸款金額（一般房貸）</span>
+        <strong id="summary-excess">NT$ 0</strong>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="compare-grid">
+    <section class="calc-card compare-card">
+      <h2>無寬限期</h2>
+      <div class="compare-line">
+        <span>每月應繳（合計）</span>
+        <strong id="ng-monthly-total">NT$ 0</strong>
+      </div>
+      <p class="compare-breakdown" id="ng-monthly-break">新青安 NT$ 0　＋　超額 NT$ 0</p>
+      <div class="compare-line">
+        <span>第一期本金</span>
+        <strong id="ng-first-principal">NT$ 0</strong>
+      </div>
+      <div class="compare-line">
+        <span>第一期利息</span>
+        <strong id="ng-first-interest">NT$ 0</strong>
+      </div>
+      <div class="compare-line total">
+        <span>總利息</span>
+        <strong id="ng-total-interest">NT$ 0</strong>
+      </div>
+      <div class="compare-line total">
+        <span>總還款金額</span>
+        <strong id="ng-total-payment">NT$ 0</strong>
+      </div>
+    </section>
+
+    <section class="calc-card compare-card highlight">
+      <h2>有寬限期</h2>
+      <div class="compare-line">
+        <span>寬限期內每月應繳（只繳利息）</span>
+        <strong id="g-during-monthly">NT$ 0</strong>
+      </div>
+      <p class="compare-breakdown" id="g-during-break">新青安 NT$ 0　＋　超額 NT$ 0</p>
+      <div class="compare-line">
+        <span>寬限期後每月應繳（本息）</span>
+        <strong id="g-after-monthly">NT$ 0</strong>
+      </div>
+      <p class="compare-breakdown" id="g-after-break">新青安 NT$ 0　＋　超額 NT$ 0</p>
+      <div class="compare-line total">
+        <span>總利息</span>
+        <strong id="g-total-interest">NT$ 0</strong>
+      </div>
+      <div class="compare-line total">
+        <span>總還款金額</span>
+        <strong id="g-total-payment">NT$ 0</strong>
+      </div>
+    </section>
+  </div>
+
+  <p class="diff-note" id="diff-note"></p>
+
+  <section class="calc-card chart-card">
+    <h2>每月應繳金額比較</h2>
+    <div id="payment-chart" class="chart-wrap"></div>
+  </section>
+
+  <section class="calc-card schedule-card">
+    <div class="schedule-header">
+      <h2>攤還明細表</h2>
+      <div class="toggle-group">
+        <div class="toggle-set" data-toggle="scenario">
+          <button type="button" class="toggle-btn active" data-value="grace">有寬限期</button>
+          <button type="button" class="toggle-btn" data-value="noGrace">無寬限期</button>
+        </div>
+        <div class="toggle-set" data-toggle="granularity">
+          <button type="button" class="toggle-btn active" data-value="year">按年</button>
+          <button type="button" class="toggle-btn" data-value="month">按月</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" id="schedule-expand" class="add-row">展開明細表</button>
+    <div id="schedule-table-wrap" class="schedule-table-wrap" hidden>
+      <table class="schedule-table">
+        <thead>
+          <tr><th id="schedule-period-label">年度</th><th>本金</th><th>利息</th><th>剩餘本金</th></tr>
+        </thead>
+        <tbody id="schedule-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="disclaimer">
+    💡 新青安為機動利率，前 3 年享 2 碼利率優惠，第 4 年起優惠幅度逐年遞減，本工具一律以你輸入的固定利率試算，僅供概算參考。<br>
+    實際核貸額度與利率仍以銀行審核結果為準。<br>
+    申請資格另有年齡、所得、房屋總價上限等限制，請以內政部及承辦銀行公告為準。
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Karina 存錢筆記</p>
+</footer>
+
+<script src="calc.js"></script>
+<script src="loan-calculator.js"></script>
+</body>
+</html>
