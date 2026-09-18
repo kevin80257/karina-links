@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karina｜理財存錢筆記</title>
+<meta name="description" content="Karina｜理財存錢｜自律生活 — 免費理財試算工具、存錢筆記、嚴選好物">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <span class="avatar">K</span>
+      <span class="brand-name">Karina</span>
+    </a>
+    <nav class="nav">
+      <a href="#tools">免費工具</a>
+      <a href="#shop">嚴選好物</a>
+      <a href="#connect">聯絡我</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="home" class="hero">
+    <span class="avatar avatar-lg">K</span>
+    <h1>Karina 存錢筆記</h1>
+    <p class="tagline">理財存錢｜自律生活｜30 歲小資女買房日記</p>
+    <div class="hero-ctas">
+      <a href="#tools" class="btn btn-primary">找免費理財工具</a>
+      <a href="#shop" class="btn btn-outline">看嚴選好物</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="about-icon">💰</span>
+        <p>存錢理財超過 10 年<br>小資也能有底氣</p>
+      </div>
+      <div class="about-card">
+        <span class="about-icon">🏠</span>
+        <p>30 歲小資女<br>買房日記進行式</p>
+      </div>
+      <div class="about-card">
+        <span class="about-icon">💪</span>
+        <p>體態管理進行式<br>自律生活分享</p>
+      </div>
+    </div>
+    <p class="about-cta">👇 不知道從哪開始？先從免費試算工具盤點自己開始</p>
+  </section>
+
+  <section id="tools" class="tools">
+    <h2>免費理財工具</h2>
+    <p class="section-sub">我的資產負債表 — 盤點現在的自己，走向更理想的未來！</p>
+
+    <div class="worksheet" id="worksheet">
+
+      <div class="worksheet-col">
+        <div class="worksheet-card assets-card">
+          <h3>💰 資產 <span class="hint">我擁有的，都是累積未來的底氣</span></h3>
+
+          <div class="field-group" data-group="bank">
+            <h4>🏦 各銀行存款 <span class="hint">(活存/定存/數位帳戶等)</span></h4>
+            <div class="rows" data-rows="bank"></div>
+            <button type="button" class="add-row" data-add="bank">＋ 新增一筆存款</button>
+          </div>
+
+          <div class="field-group" data-group="invest">
+            <h4>📈 投資 <span class="hint">(股票/ETF/基金/債券等)</span></h4>
+            <div class="rows rows-invest" data-rows="invest"></div>
+            <button type="button" class="add-row" data-add="invest">＋ 新增一筆投資</button>
+          </div>
+
+          <div class="field-group" data-group="other-asset">
+            <h4>💎 其他資產 <span class="hint">(黃金/現金價值/其他)</span></h4>
+            <div class="rows" data-rows="other-asset"></div>
+            <button type="button" class="add-row" data-add="other-asset">＋ 新增其他資產</button>
+          </div>
+
+          <div class="total-row">
+            <span>資產總計（A）</span>
+            <strong id="total-assets">NT$ 0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="worksheet-col">
+        <div class="worksheet-card liabilities-card">
+          <h3>📄 負債 <span class="hint">把負債列出來，才能更有方向地管理它</span></h3>
+
+          <div class="field-group">
+            <h4>🏠 房貸</h4>
+            <div class="loan-row">
+              <label>貸款餘額（元）<input type="number" inputmode="numeric" min="0" id="home-loan-balance" placeholder="0"></label>
+              <label>下個月須繳金額（元）<input type="number" inputmode="numeric" min="0" id="home-loan-payment" placeholder="0"></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <h4>🚗 車貸</h4>
+            <div class="loan-row">
+              <label>貸款餘額（元）<input type="number" inputmode="numeric" min="0" id="car-loan-balance" placeholder="0"></label>
+              <label>下個月須繳金額（元）<input type="number" inputmode="numeric" min="0" id="car-loan-payment" placeholder="0"></label>
+            </div>
+          </div>
+
+          <div class="field-group" data-group="card">
+            <h4>💳 信用卡</h4>
+            <div class="rows" data-rows="card"></div>
+            <button type="button" class="add-row" data-add="card">＋ 新增一張信用卡</button>
+          </div>
+
+          <div class="field-group" data-group="other-debt">
+            <h4>📄 其他負債 <span class="hint">(學貸/家人借款/其他)</span></h4>
+            <div class="rows" data-rows="other-debt"></div>
+            <button type="button" class="add-row" data-add="other-debt">＋ 新增其他負債</button>
+          </div>
+
+          <div class="total-row">
+            <span>負債總計（B）</span>
+            <strong id="total-liabilities">NT$ 0</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="networth-result">
+      <span>我的淨資產　資產總計（A）－ 負債總計（B）＝</span>
+      <strong id="net-worth">NT$ 0</strong>
+    </div>
+    <p class="reminder">💡 建議每月固定更新一次，觀察自己的財務變化；資產增加、負債減少，就是離理想生活更近一步。</p>
+
+    <div class="tool-actions">
+      <a href="assets/networth-worksheet.png" download class="btn btn-outline">📥 下載空白版存起來</a>
+    </div>
+  </section>
+
+  <section id="shop" class="shop">
+    <h2>嚴選好物</h2>
+    <p class="section-sub">正在整理商品資料，準備上線～</p>
+    <div class="shop-grid">
+      <div class="shop-card placeholder">
+        <span class="shop-icon">🛍️</span>
+        <p>捷樂仙嚴選商品</p>
+        <span class="badge">即將上線</span>
+      </div>
+      <div class="shop-card placeholder">
+        <span class="shop-icon">🧴</span>
+        <p>捷樂仙嚴選商品</p>
+        <span class="badge">即將上線</span>
+      </div>
+      <div class="shop-card placeholder">
+        <span class="shop-icon">✈️</span>
+        <p>代購商品</p>
+        <span class="badge">籌備中</span>
+      </div>
+    </div>
+    <!--
+      Ecwid 購物車掛載點（尚未申請 Ecwid 帳號，先保留位置）：
+      1. 到 https://www.ecwid.com/ 申請帳號，取得 Store ID
+      2. 在下面加入：
+         <div id="my-store-STORE_ID"></div>
+         <script data-cfasync="false" type="text/javascript"
+           src="https://app.ecwid.com/script.js?STORE_ID&data_platform=code"></script>
+      3. 把上面三張佔位卡片換成實際商品
+    -->
+  </section>
+
+  <section id="connect" class="connect">
+    <h2>聯絡我</h2>
+    <div class="connect-links">
+      <a href="https://www.instagram.com/karina._.shine" target="_blank" rel="noopener" class="connect-btn ig">
+        📷 Instagram @karina._.shine
+      </a>
+      <a href="https://line.me/ti/p/~a0956511676" target="_blank" rel="noopener" class="connect-btn line">
+        💬 加 LINE 好友
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Karina 存錢筆記</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

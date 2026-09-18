@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>資產負債表列印版</title>
+<style>
+  :root {
+    --cream: #fff8f0;
+    --peach: #fbe3c7;
+    --peach-light: #fdf0de;
+    --pink: #f6c3cd;
+    --mustard: #eeab3c;
+    --mustard-dark: #d6922a;
+    --brown: #4a3728;
+    --brown-soft: #7a6350;
+    --card-border: #f0d5b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--brown);
+    font-family: "PingFang TC", "Microsoft JhengHei", "Heiti TC", "Noto Sans TC", sans-serif;
+    line-height: 1.3;
+  }
+  .sheet { max-width: 680px; margin: 0 auto; padding: 12px 18px 10px; }
+  table { table-layout: fixed; width: 100%; border-collapse: collapse; margin-bottom: 4px; }
+  td.num { width: 18px; color: var(--mustard-dark); font-weight: 700; }
+  td.line { border-bottom: 1px solid var(--brown-soft); }
+  td { font-size: 0.74rem; padding: 2px 4px; }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+  }
+  .title-row h1 { font-size: 1.4rem; margin: 0; }
+  .badge-icon { font-size: 1.5rem; }
+  .subtitle { color: var(--brown-soft); margin: 0 0 2px; font-size: 0.85rem; }
+  .date-line { color: var(--brown-soft); font-size: 0.78rem; margin-bottom: 8px; }
+  .blank { display: inline-block; border-bottom: 1px solid var(--brown-soft); min-width: 30px; }
+
+  .card {
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    padding: 7px 14px;
+    margin-bottom: 6px;
+  }
+  .assets-card { background: var(--peach-light); }
+  .liabilities-card { background: #fdeef0; }
+  .card h2 { font-size: 1rem; margin: 0 0 1px; }
+  .card .hint { font-size: 0.65rem; font-weight: 400; color: var(--brown-soft); }
+  h3 { font-size: 0.82rem; margin: 5px 0 2px; }
+  h3 .hint { font-size: 0.62rem; font-weight: 400; color: var(--brown-soft); }
+
+  .loan-row { display: flex; gap: 20px; font-size: 0.74rem; margin-bottom: 4px; }
+  .loan-row div { flex: 1; }
+  .loan-row span.blank { display: block; margin-top: 2px; }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--card-border);
+    margin-top: 5px;
+    padding-top: 4px;
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+
+  .networth-box {
+    text-align: center;
+    background: #fff;
+    border: 2px solid var(--mustard);
+    border-radius: 12px;
+    padding: 8px;
+    margin: 8px 0;
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+
+  .reminder { font-size: 0.7rem; color: var(--brown-soft); text-align: center; margin: 4px 0 0; }
+  .credit { text-align: right; font-size: 0.68rem; color: var(--mustard-dark); margin: 2px 0 0; }
+  p { margin: 0 0 4px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="title-row">
+    <h1>💰 我的資產負債表</h1>
+    <span class="badge-icon">🐷</span>
+  </div>
+  <p class="subtitle">盤點現在的自己，走向更理想的未來！</p>
+  <p class="date-line">截至 <span class="blank">&nbsp;</span> 年 <span class="blank">&nbsp;</span> 月 <span class="blank">&nbsp;</span> 日（當月底）</p>
+
+  <div class="card assets-card">
+    <h2>資產 <span class="hint">我擁有的，都是累積未來的底氣</span></h2>
+
+    <h3>🏦 各銀行存款 <span class="hint">(活存/定存/數位帳戶等)</span></h3>
+    <table>
+      <tr>
+        <td class="num">①</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">④</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="num">②</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">⑤</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="num">③</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">⑥</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+    </table>
+
+    <h3>📈 投資 <span class="hint">(股票/ETF/基金/債券等)</span></h3>
+    <table>
+      <tr>
+        <td class="num">①</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">③</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="num">②</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">④</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+    </table>
+
+    <h3>💎 其他資產 <span class="hint">(黃金/現金價值/其他)</span></h3>
+    <table>
+      <tr><td class="line">&nbsp;</td><td class="line">&nbsp;</td></tr>
+    </table>
+
+    <div class="total-row"><span>資產總計（A）</span><span class="blank" style="min-width:100px">&nbsp;</span></div>
+  </div>
+
+  <div class="card liabilities-card">
+    <h2>負債 <span class="hint">把負債列出來，才能更有方向地管理它</span></h2>
+
+    <h3>🏠 房貸</h3>
+    <div class="loan-row">
+      <div>貸款餘額（元）<span class="blank">&nbsp;</span></div>
+      <div>下個月須繳金額（元）<span class="blank">&nbsp;</span></div>
+    </div>
+
+    <h3>🚗 車貸</h3>
+    <div class="loan-row">
+      <div>貸款餘額（元）<span class="blank">&nbsp;</span></div>
+      <div>下個月須繳金額（元）<span class="blank">&nbsp;</span></div>
+    </div>
+
+    <h3>💳 信用卡</h3>
+    <table>
+      <tr>
+        <td class="num">①</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">③</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="num">②</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+        <td class="num">④</td><td class="line">&nbsp;</td><td class="line">&nbsp;</td>
+      </tr>
+    </table>
+
+    <h3>📄 其他負債 <span class="hint">(學貸/家人借款/其他)</span></h3>
+    <table>
+      <tr><td class="line">&nbsp;</td><td class="line">&nbsp;</td></tr>
+    </table>
+
+    <div class="total-row"><span>負債總計（B）</span><span class="blank" style="min-width:100px">&nbsp;</span></div>
+  </div>
+
+  <div class="networth-box">
+    我的淨資產　資產總計（A）－ 負債總計（B）＝ NT$
+    <span class="blank" style="display:inline-block;min-width:140px">&nbsp;</span>
+  </div>
+
+  <p class="reminder">💡 建議每月固定更新一次，觀察自己的財務變化；資產增加、負債減少，就是離理想生活更近一步。</p>
+  <p class="credit">— Karina 存錢筆記</p>
+</div>
+</body>
+</html>
