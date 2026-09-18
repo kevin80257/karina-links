@@ -6,40 +6,97 @@
 <title>Karina｜理財存錢筆記</title>
 <meta name="description" content="Karina｜理財存錢｜自律生活 — 免費理財試算工具、存錢筆記、嚴選好物">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
 <script src="analytics.js"></script>
 </head>
 <body>
 
-<header class="site-header">
+<div class="intro-overlay" id="intro-overlay">
+  <div class="intro-brand">Karina</div>
+  <p class="intro-tagline" id="intro-tagline">理財存錢．自律生活．找到你的節奏</p>
+  <button type="button" class="intro-skip" id="intro-skip">略過</button>
+</div>
+
+<header class="site-header on-hero" id="site-header">
   <div class="header-inner">
-    <a href="#home" class="brand">
+    <a href="index.html" class="brand">
       <img class="avatar" src="assets/avatar.png" alt="Karina">
       <span class="brand-name">Karina</span>
     </a>
-    <nav class="nav">
-      <a href="#tools">免費工具</a>
-      <a href="loan-calculator.html">房貸試算</a>
-      <a href="#shop">嚴選好物</a>
-      <a href="#connect">聯絡我</a>
+
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="site-nav">
+      <a href="#home" class="nav-item active"><span class="nav-en">HOME</span><span class="nav-zh">首頁</span></a>
+      <a href="#about" class="nav-item"><span class="nav-en">ABOUT</span><span class="nav-zh">關於我</span></a>
+
+      <div class="nav-item nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle">
+          <span class="nav-en">GUIDES</span><span class="nav-zh">存錢攻略</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="guides.html">存錢攻略總覽</a>
+          <a href="loan-calculator.html">房貸試算</a>
+        </div>
+      </div>
+
+      <a href="#shop" class="nav-item"><span class="nav-en">SHOP</span><span class="nav-zh">嚴選好物</span></a>
+      <a href="#connect" class="nav-item"><span class="nav-en">CONTACT</span><span class="nav-zh">聯絡我</span></a>
     </nav>
+
+    <div class="header-social">
+      <a href="https://www.instagram.com/karina._.shine" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://line.me/ti/p/~yui501023" target="_blank" rel="noopener" aria-label="LINE">L</a>
+    </div>
   </div>
 </header>
 
 <main>
 
   <section id="home" class="hero">
-    <img class="avatar avatar-lg" src="assets/avatar.png" alt="Karina">
-    <h1>Karina 存錢筆記</h1>
-    <p class="tagline">理財存錢｜自律生活｜30 歲小資女買房日記</p>
-    <div class="hero-ctas">
-      <a href="#tools" class="btn btn-primary">找免費理財工具</a>
-      <a href="#shop" class="btn btn-outline">看嚴選好物</a>
+    <div class="hero-media">
+      <div class="hero-slide placeholder is-active" data-slide="0">
+        <span class="hero-slide-caption">Hero 圖片預留位置（建議 1920×1080 WebP）</span>
+      </div>
+      <div class="hero-slide placeholder" data-slide="1">
+        <span class="hero-slide-caption">Hero 圖片預留位置（建議 1920×1080 WebP）</span>
+      </div>
     </div>
+    <div class="hero-overlay">
+      <span class="eyebrow">KARINA SAVING NOTES</span>
+      <h1>Karina 存錢筆記</h1>
+      <p class="tagline">理財存錢｜自律生活｜30 歲小資女買房日記</p>
+      <div class="hero-ctas">
+        <a href="#tools" class="btn btn-outline-light">找免費理財工具</a>
+        <a href="#shop" class="btn btn-outline-light">看嚴選好物</a>
+      </div>
+    </div>
+    <span class="hero-scroll-hint">SCROLL ↓</span>
   </section>
 
   <section id="about" class="about">
-    <div class="about-grid">
+    <div class="feature-row" data-reveal>
+      <div class="feature-media">
+        <span class="feature-media-icon">📖</span>
+        <span class="feature-media-caption">照片預留位置</span>
+      </div>
+      <div class="feature-text">
+        <span class="eyebrow">ABOUT</span>
+        <h2>從月光族到自己的存錢節奏</h2>
+        <p>
+          存錢理財超過 10 年，我也曾經什麼都不懂、當過月光族。
+          現在一邊記錄 30 歲小資女的買房日記，一邊分享自己真的在用的方法——
+          不是要你省到沒有生活，而是找到屬於自己的節奏。
+        </p>
+      </div>
+    </div>
+
+    <div class="about-grid" data-reveal>
       <div class="about-card">
         <span class="about-icon">💰</span>
         <p>存錢理財超過 10 年<br>小資也能有底氣</p>
@@ -53,11 +110,26 @@
         <p>體態管理進行式<br>自律生活分享</p>
       </div>
     </div>
-    <p class="about-cta">👇 不知道從哪開始？先從免費試算工具盤點自己開始</p>
+    <p class="about-cta">不知道從哪開始？先從免費試算工具盤點自己開始</p>
   </section>
 
   <section id="tools" class="tools">
-    <h2>免費理財工具</h2>
+    <div class="feature-row reverse" data-reveal>
+      <div class="feature-media">
+        <span class="feature-media-icon">🧮</span>
+        <span class="feature-media-caption">照片預留位置</span>
+      </div>
+      <div class="feature-text">
+        <span class="eyebrow">FREE TOOLS</span>
+        <h2>免費理財工具</h2>
+        <p>
+          盤點資產負債，才知道自己現在站在哪裡。
+          這份工具讓你直接在網頁上輸入數字，即時算出淨資產，
+          也可以下載空白版慢慢填。
+        </p>
+      </div>
+    </div>
+
     <p class="section-sub">我的資產負債表 — 盤點現在的自己，走向更理想的未來！</p>
 
     <div class="worksheet" id="worksheet">
@@ -151,8 +223,26 @@
     </div>
   </section>
 
+  <div class="quote-band" data-reveal>
+    <p>「記帳不是為了限制自己，而是為了創造更多選擇的自由。」</p>
+  </div>
+
   <section id="shop" class="shop">
-    <h2>嚴選好物</h2>
+    <div class="feature-row" data-reveal>
+      <div class="feature-media">
+        <span class="feature-media-icon">🛍️</span>
+        <span class="feature-media-caption">照片預留位置</span>
+      </div>
+      <div class="feature-text">
+        <span class="eyebrow">SHOP</span>
+        <h2>嚴選好物</h2>
+        <p>
+          只推薦自己真的有在用、覺得值得的東西，
+          不是業配就硬推，你可以放心參考。
+        </p>
+      </div>
+    </div>
+
     <p class="section-sub">正在整理商品資料，準備上線～</p>
     <div class="shop-grid">
       <div class="shop-card placeholder">
@@ -183,13 +273,14 @@
   </section>
 
   <section id="connect" class="connect">
+    <span class="eyebrow">CONTACT</span>
     <h2>聯絡我</h2>
-    <div class="connect-links">
-      <a href="https://www.instagram.com/karina._.shine" target="_blank" rel="noopener" class="connect-btn ig">
-        📷 Instagram @karina._.shine
+    <div class="connect-links" data-reveal>
+      <a href="https://www.instagram.com/karina._.shine" target="_blank" rel="noopener" class="connect-btn">
+        Instagram @karina._.shine
       </a>
-      <a href="https://line.me/ti/p/~yui501023" target="_blank" rel="noopener" class="connect-btn line">
-        💬 加 LINE 好友
+      <a href="https://line.me/ti/p/~yui501023" target="_blank" rel="noopener" class="connect-btn">
+        加 LINE 好友
       </a>
     </div>
   </section>
@@ -201,6 +292,9 @@
   <p class="analytics-note">本站使用 Google Analytics 統計匿名瀏覽數據，詳見<a href="privacy.html">隱私權政策</a>。</p>
 </footer>
 
+<script src="header.js"></script>
+<script src="reveal.js"></script>
+<script src="intro.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

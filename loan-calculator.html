@@ -6,29 +6,53 @@
 <title>新青安房貸試算｜Karina 存錢筆記</title>
 <meta name="description" content="新青安房貸試算工具 — 自動拆分新青安額度與超額部分，比較有無寬限期的每月還款金額">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
 <script src="analytics.js"></script>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
       <img class="avatar" src="assets/avatar.png" alt="Karina">
       <span class="brand-name">Karina</span>
     </a>
-    <nav class="nav">
-      <a href="index.html#tools">免費工具</a>
-      <a href="loan-calculator.html">房貸試算</a>
-      <a href="index.html#shop">嚴選好物</a>
-      <a href="index.html#connect">聯絡我</a>
+
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="site-nav">
+      <a href="index.html#home" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首頁</span></a>
+      <a href="index.html#about" class="nav-item"><span class="nav-en">ABOUT</span><span class="nav-zh">關於我</span></a>
+
+      <div class="nav-item nav-dropdown active">
+        <button type="button" class="nav-dropdown-toggle">
+          <span class="nav-en">GUIDES</span><span class="nav-zh">存錢攻略</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="guides.html">存錢攻略總覽</a>
+          <a href="loan-calculator.html" class="active">房貸試算</a>
+        </div>
+      </div>
+
+      <a href="index.html#shop" class="nav-item"><span class="nav-en">SHOP</span><span class="nav-zh">嚴選好物</span></a>
+      <a href="index.html#connect" class="nav-item"><span class="nav-en">CONTACT</span><span class="nav-zh">聯絡我</span></a>
     </nav>
+
+    <div class="header-social">
+      <a href="https://www.instagram.com/karina._.shine" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://line.me/ti/p/~yui501023" target="_blank" rel="noopener" aria-label="LINE">L</a>
+    </div>
   </div>
 </header>
 
 <main class="calc-page">
 
-  <a href="index.html#tools" class="back-link">← 回免費工具</a>
+  <a href="guides.html" class="back-link">← 回存錢攻略</a>
   <h1>新青安房貸試算</h1>
   <p class="section-sub">輸入貸款總金額，自動拆分「新青安」與「超額」部分，比較有無寬限期的月付金差異</p>
 
@@ -198,6 +222,7 @@
   <p class="analytics-note">本站使用 Google Analytics 統計匿名瀏覽數據，詳見<a href="privacy.html">隱私權政策</a>。</p>
 </footer>
 
+<script src="header.js"></script>
 <script src="calc.js"></script>
 <script src="loan-calculator.js"></script>
 </body>

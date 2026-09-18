@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>隱私權政策｜Karina 存錢筆記</title>
-<meta name="description" content="Karina 存錢筆記網站的隱私權政策">
+<title>存錢攻略｜Karina 存錢筆記</title>
+<meta name="description" content="存錢攻略總覽 — 免費理財試算工具與即將上線的存錢技巧文章">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,12 +29,12 @@
       <a href="index.html#home" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首頁</span></a>
       <a href="index.html#about" class="nav-item"><span class="nav-en">ABOUT</span><span class="nav-zh">關於我</span></a>
 
-      <div class="nav-item nav-dropdown">
+      <div class="nav-item nav-dropdown active">
         <button type="button" class="nav-dropdown-toggle">
           <span class="nav-en">GUIDES</span><span class="nav-zh">存錢攻略</span>
         </button>
         <div class="nav-dropdown-menu">
-          <a href="guides.html">存錢攻略總覽</a>
+          <a href="guides.html" class="active">存錢攻略總覽</a>
           <a href="loan-calculator.html">房貸試算</a>
         </div>
       </div>
@@ -51,48 +51,51 @@
 </header>
 
 <main class="calc-page">
-  <a href="index.html" class="back-link">← 回首頁</a>
-  <h1>隱私權政策</h1>
+  <div class="guides-hero" data-reveal>
+    <span class="eyebrow">GUIDES</span>
+    <h1>存錢攻略</h1>
+    <p class="section-sub">理財工具與存錢方法，陸續整理成一篇篇能直接照做的攻略</p>
+  </div>
 
-  <section class="calc-card">
-    <h2>網站流量統計</h2>
-    <p>
-      本網站使用 Google Analytics（GA4）統計匿名的網站瀏覽數據，例如瀏覽人數、停留時間、
-      使用的裝置與瀏覽器類型，以及在網站上完成理財試算等操作行為，
-      幫助我們了解哪些內容對讀者有幫助，藉此持續改善網站內容與功能。
+  <section class="calc-card" data-reveal>
+    <span class="eyebrow">TOOL</span>
+    <h2>新青安房貸試算</h2>
+    <p style="color: var(--taupe);">
+      輸入貸款總金額，自動拆分「新青安」與「超額」部分，
+      比較有無寬限期的每月還款金額差異，還有逐年／逐月的攤還明細表。
     </p>
-    <p>
-      本網站<strong>不會</strong>透過 Google Analytics 蒐集你的姓名、電話、Email、地址等可以直接識別身分的個人資料，
-      試算工具中輸入的金額也只會以區間（例如「1000～1500 萬」）的形式用於統計，不會記錄你輸入的精確金額。
-    </p>
+    <a href="loan-calculator.html" class="btn btn-primary">立即試算</a>
   </section>
 
-  <section class="calc-card">
-    <h2>Cookie</h2>
-    <p>
-      Google Analytics 會在你的瀏覽器中使用 Cookie 來辨識不重複的訪客，這些資料由 Google 依其
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">隱私權政策</a>
-      處理。你可以透過瀏覽器設定清除或封鎖 Cookie，也可以安裝
-      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics 停用外掛程式</a>
-      選擇不被追蹤。
-    </p>
-  </section>
-
-  <section class="calc-card">
-    <h2>聯絡我們</h2>
-    <p>
-      如果你對本隱私權政策有任何疑問，歡迎透過
-      <a href="index.html#connect">網站上的聯絡方式</a>
-      與 Karina 聯絡。
-    </p>
+  <section data-reveal>
+    <h2 style="text-align:left; font-size:1.2rem; margin-bottom: 16px;">更多攻略，準備中</h2>
+    <div class="guides-list">
+      <div class="guide-card">
+        <span class="eyebrow">COMING SOON</span>
+        <p>先存後花分帳法</p>
+        <span class="badge">籌備中</span>
+      </div>
+      <div class="guide-card">
+        <span class="eyebrow">COMING SOON</span>
+        <p>緊急備用金該存多少？</p>
+        <span class="badge">籌備中</span>
+      </div>
+      <div class="guide-card">
+        <span class="eyebrow">COMING SOON</span>
+        <p>小資族的複利／定存試算</p>
+        <span class="badge">籌備中</span>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <p>© <span id="year"></span> Karina 存錢筆記</p>
+  <p class="analytics-note">本站使用 Google Analytics 統計匿名瀏覽數據，詳見<a href="privacy.html">隱私權政策</a>。</p>
 </footer>
 
 <script src="header.js"></script>
+<script src="reveal.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
